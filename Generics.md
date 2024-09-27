@@ -1,5 +1,4 @@
 - Type parameters bring compile type safety (whereas in Object parameters, safety could only be checked at run time)
-![img.png](resources/img.png)
-![img.png](img.png)
-![img_1.png](img_3.png)
-![img_2.png](img_4.png)
+![image](https://github.com/user-attachments/assets/f1360063-bddd-43f8-ac54-6e93e12aca02)
+![image](https://github.com/user-attachments/assets/b1cbabbd-edbc-4432-9e8d-d7025f039602)
+![image](https://github.com/user-attachments/assets/6eeaa534-e462-4a46-a26b-e8621ee637ab)
