@@ -1,0 +1,5 @@
+- Type parameters bring compile type safety (whereas in Object parameters, safety could only be checked at run time)
+![img.png](resources/img.png)
+![img.png](img.png)
+![img_1.png](img_3.png)
+![img_2.png](img_4.png)
