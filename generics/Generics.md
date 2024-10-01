@@ -71,6 +71,18 @@ class Dog extends Animal {
 ![image](https://github.com/user-attachments/assets/b1cbabbd-edbc-4432-9e8d-d7025f039602)
 ![image](https://github.com/user-attachments/assets/6eeaa534-e462-4a46-a26b-e8621ee637ab)
 
+- **Restrictions & Limitations of Java Generics**:
+1. Varargs warnings - Use `@SafeVarargs` if you know your method is type-safe and doesn't introduce heap pollution. This annotation is allowed on methods that do not modify the contents of the varargs array or expose it in an unsafe way.
+
+2. ![img_2.png](img_2.png)
+
+3. ![img_3.png](img_3.png)
+
+4. ![img_4.png](img_4.png)
+
+5. Cannot instantiate a generic type
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
 
 
 
