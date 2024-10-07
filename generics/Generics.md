@@ -71,18 +71,23 @@ class Dog extends Animal {
 ![image](https://github.com/user-attachments/assets/b1cbabbd-edbc-4432-9e8d-d7025f039602)
 ![image](https://github.com/user-attachments/assets/6eeaa534-e462-4a46-a26b-e8621ee637ab)
 
-- **Restrictions & Limitations of Java Generics**:
-1. Varargs warnings - Use `@SafeVarargs` if you know your method is type-safe and doesn't introduce heap pollution. This annotation is allowed on methods that do not modify the contents of the varargs array or expose it in an unsafe way.
+## Restrictions & Limitations of Java Generics
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
 
-2. ![img_2.png](img_2.png)
+### Varargs warnings 
+* Use `@SafeVarargs` if you know your method is type-safe and doesn't introduce heap pollution. This annotation is allowed on methods that do not modify the contents of the varargs array or expose it in an unsafe way.
+* `@SafeVarargs`: In addition to the usage restrictions imposed by its `@Target({ElementType. CONSTRUCTOR,ElementType. METHOD})` meta-annotation, compilers are required to implement additional usage restrictions on this annotation type; it is a compile-time error if a method or constructor declaration is annotated with a `@SafeVarargs` annotation, and either:
+  * the declaration is a fixed arity method or constructor
+  * the declaration is a variable arity method that is neither `static` nor `final` nor `private`.
 
-3. ![img_3.png](img_3.png)
-
-4. ![img_4.png](img_4.png)
-
-5. Cannot instantiate a generic type
+### Cannot instantiate a generic type
 ![img_5.png](img_5.png)
 ![img_6.png](img_6.png)
+
+### Constructing Generic Arrays
+![img_7.png](img_7.png)
 
 
 

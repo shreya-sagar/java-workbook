@@ -1,6 +1,8 @@
 package com.dev;
 
-public class ArrayAlg {
+import java.lang.reflect.Array;
+
+public class GenericArrayScenario {
 
     /**
      * Returns the middle element of a variable-length argument list (varargs).
@@ -18,6 +20,7 @@ public class ArrayAlg {
      * @param a the varargs array of elements of type T
      * @return the middle element of the varargs
      */
+    @SafeVarargs
     public static <T> T getMiddle(T... a) {
         return a[a.length/2];
     }
@@ -87,6 +90,7 @@ public class ArrayAlg {
      * @param a the varargs list of elements of type T
      * @return a {@code Pair<T>} containing the minimum and maximum elements, or null if the list is empty
      */
+    @SafeVarargs
     public static <T extends Comparable<T>> Pair<T> minmax(T... a) {
         if(a == null || a.length == 0) return null;
         T min = a[0];
@@ -97,5 +101,12 @@ public class ArrayAlg {
             if(max.compareTo(a[i]) < 0) max = a[i];
         }
         return new Pair<>(min, max);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T[] getGenericArray(Class<T> clazz, T... a) {
+        T[] genericArray = (T[]) Array.newInstance(clazz, a.length);
+        System.arraycopy(a, 0, genericArray, 0, a.length);
+        return genericArray;
     }
 }
