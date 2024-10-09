@@ -94,6 +94,11 @@ class Dog extends Animal {
 
 ## Constructing Generic Arrays
 ![img_7.png](img_7.png)
+![image](https://github.com/user-attachments/assets/6289e027-d33a-44d6-9397-1a168bfd83a1)
+![image](https://github.com/user-attachments/assets/742bacca-1cf2-453c-b502-bce49c01a3f9)
+
+
+
 
 
 
