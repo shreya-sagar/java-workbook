@@ -1,8 +1,11 @@
 package com.dev;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.InvocationTargetException;
+import java.util.function.IntFunction;
+import java.util.function.Supplier;
 
-public class GenericArrayScenario {
+public class GenericUtils {
 
     /**
      * Returns the middle element of a variable-length argument list (varargs).
@@ -104,9 +107,34 @@ public class GenericArrayScenario {
     }
 
     @SuppressWarnings("unchecked")
+    public static <T extends Comparable<T>> T[] minmax(IntFunction<T[]> constructorExpression, T... a) {
+        T[] minmaxArray = constructorExpression.apply(2);
+        if(a == null || a.length == 0) return null;
+        T min = a[0];
+        T max = a[0];
+
+        for(int i = 1; i < a.length; i++) {
+            if(min.compareTo(a[i]) > 0) min = a[i];
+            if(max.compareTo(a[i]) < 0) max = a[i];
+        }
+        minmaxArray[0] = min;
+        minmaxArray[1] = max;
+
+        return minmaxArray;
+    }
+
+    @SuppressWarnings("unchecked")
     public static <T> T[] getGenericArray(Class<T> clazz, T... a) {
         T[] genericArray = (T[]) Array.newInstance(clazz, a.length);
         System.arraycopy(a, 0, genericArray, 0, a.length);
         return genericArray;
+    }
+
+    public static <T extends Comparable<T>> Pair<T> makePair(Supplier<T> constructorExpression) {
+        return new Pair<>(constructorExpression.get(), constructorExpression.get());
+    }
+
+    public static <T extends Comparable<T>> Pair<T> makePair(Class<T> clazz) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        return new Pair<>(clazz.getDeclaredConstructor().newInstance(), clazz.getDeclaredConstructor().newInstance());
     }
 }

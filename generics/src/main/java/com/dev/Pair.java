@@ -1,5 +1,7 @@
 package com.dev;
 
+import java.util.function.Supplier;
+
 public class Pair<T extends Comparable> {
     private T first;
     private T second;
@@ -28,5 +30,13 @@ public class Pair<T extends Comparable> {
 
     public void setSecond(T second) {
         this.second = second;
+    }
+
+    @Override
+    public String toString() {
+        return "Pair{" +
+                "first=" + first +
+                ", second=" + second +
+                '}';
     }
 }
