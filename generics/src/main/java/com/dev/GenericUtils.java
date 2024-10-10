@@ -69,7 +69,8 @@ public class GenericUtils {
      * @param a the array of elements of type T
      * @return the maximum element in the array, or null if the array is empty or null
      */
-    public static <T extends Comparable<T> & Cloneable> T max(T[] a) {
+    @SafeVarargs
+    private static <T extends Comparable<T> & Cloneable> T max(T... a) {
         if(a == null || a.length == 0) return null;
         T max = a[0];
 
@@ -136,5 +137,31 @@ public class GenericUtils {
 
     public static <T extends Comparable<T>> Pair<T> makePair(Class<T> clazz) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         return new Pair<>(clazz.getDeclaredConstructor().newInstance(), clazz.getDeclaredConstructor().newInstance());
+    }
+
+    public static <T> T getT() {
+        return null;
+    }
+
+    public static <T extends Throwable> void checkTypeVariableInCatch(){
+        try {
+            int n = 10 / 2;
+        } finally {
+            System.out.println("finally");
+        }
+        //Error : can't catch type parameters
+        /*catch (T ex) {
+            System.out.println("catch");
+        }*/
+    }
+
+    public static <T extends Throwable> void checkTypeVariableInException() throws T {
+        T t = null;
+        try {
+            int n = (int) (10 / Math.random());
+        } catch (Throwable cause) {
+            t.initCause(cause);
+            throw t;
+        }
     }
 }

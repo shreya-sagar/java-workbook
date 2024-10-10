@@ -32,6 +32,10 @@ public class Pair<T extends Comparable> {
         this.second = second;
     }
 
+    public boolean equals(T value) {
+        return first.equals(value) && second.equals(value);
+    }
+
     @Override
     public String toString() {
         return "Pair{" +

@@ -44,5 +44,13 @@ public class GenericsApplication {
 
         Pair<StringBuilder> stringBuilderPairUsingClass = GenericUtils.makePair(StringBuilder.class);
         System.out.println("StringBuilderPairUsingClass: " + stringBuilderPairUsingClass);
+
+        Pair<String> stringPair = new Pair<>();
+        stringPair.setFirst("first");
+        stringPair.setSecond("value");
+        System.out.println(stringPair.equals("value"));
     }
+}
+
+class PairException<T> {
 }
