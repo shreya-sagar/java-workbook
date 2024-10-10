@@ -98,6 +98,7 @@ class Dog extends Animal {
 ![image](https://github.com/user-attachments/assets/742bacca-1cf2-453c-b502-bce49c01a3f9)
 ![image](https://github.com/user-attachments/assets/d1fe9487-e81f-4ec5-82b6-ad7b11871458)
 ![image](https://github.com/user-attachments/assets/84c4b464-2407-4645-9c3a-d4fb4d42751f)
+![image](https://github.com/user-attachments/assets/5bdd48cd-3a68-4f60-ae02-c66b04a50b97)
 
 
 
