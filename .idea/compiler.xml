@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="generics" />
         <module name="reflection" />
+        <module name="fundamentals" />
       </profile>
     </annotationProcessing>
   </component>
