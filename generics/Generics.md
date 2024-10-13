@@ -100,6 +100,89 @@ class Dog extends Animal {
 ![image](https://github.com/user-attachments/assets/84c4b464-2407-4645-9c3a-d4fb4d42751f)
 ![image](https://github.com/user-attachments/assets/5bdd48cd-3a68-4f60-ae02-c66b04a50b97)
 
+# `extends` vs `super`
+
+In Java Generics, `extends` and `super` are used with wildcards to provide flexibility when specifying the types that can be accepted or returned by generic methods or classes. They define bounds or restrictions on the types, helping control how types are used and ensuring type safety. Let's break them down:
+
+### 1. **`? extends T` (Upper Bounded Wildcard)**
+
+- **Meaning**: The wildcard can be any type that **is a subtype of `T` or `T` itself**.
+- **Usage**: You use `? extends T` when you want to read data from a generic structure but don't intend to modify it (you are limiting the types you accept to `T` and its subclasses).
+- **Example**: This allows you to **read** values of type `T` or its subtypes but **not write** new values into the structure, except `null`.
+
+#### Example:
+```java
+public static void printList(List<? extends Number> list) {
+    for (Number num : list) {
+        System.out.println(num);
+    }
+}
+```
+- **`List<? extends Number>`** means that the list can contain elements that are of type `Number` or any subclass of `Number` (e.g., `Integer`, `Double`, etc.).
+- You can read from this list because you know the elements will be at least `Number` or its subclasses.
+- You cannot add elements to the list (except `null`) because the exact type of elements is unknown at compile time—it could be `Integer`, `Double`, or some other subclass.
+
+### 2. **`? super T` (Lower Bounded Wildcard)**
+
+- **Meaning**: The wildcard can be any type that **is a supertype of `T` or `T` itself**.
+- **Usage**: You use `? super T` when you want to **write** data to a generic structure, but you don't care about reading from it in a type-safe way.
+- **Example**: This allows you to **write** values of type `T` or its subclasses but **not read** elements as anything more specific than `Object`.
+
+#### Example:
+```java
+public static void addIntegers(List<? super Integer> list) {
+    list.add(1);
+    list.add(2);
+}
+```
+- **`List<? super Integer>`** means the list can accept elements that are `Integer` or any superclass of `Integer` (e.g., `Number`, `Object`).
+- You can add `Integer` values to the list because the list must be able to hold at least `Integer` or its superclasses.
+- You cannot guarantee what type the elements are when reading from the list, so reading will only be safe as `Object`.
+
+### Key Difference: `extends` vs `super`
+
+- **`extends`**: Use this when you want to **read** data from a structure but you’re not going to add any new data (except `null`). It makes sense when you're looking to get more specific subtypes of a type.
+- **`super`**: Use this when you want to **write** data into a structure. This is useful when you’re inserting items, ensuring that the structure can hold the type or any of its supertypes.
+
+### Practical Example with Both `extends` and `super`:
+
+Suppose you have a class hierarchy:
+```java
+class Animal {}
+class Dog extends Animal {}
+class Cat extends Animal {}
+```
+
+#### **Using `extends`**:
+```java
+List<? extends Animal> animals = new ArrayList<Dog>();
+// Can read as Animal (or its subtypes) but cannot add anything except null
+Animal animal = animals.get(0); // Safe to read as Animal
+// animals.add(new Dog()); // Error: cannot add anything because the exact type is unknown
+```
+
+#### **Using `super`**:
+```java
+List<? super Dog> animals = new ArrayList<Animal>();
+// Can add Dog or its subclasses but can only safely read as Object
+animals.add(new Dog());  // Can add Dog
+// Dog dog = animals.get(0); // Error: cannot guarantee the type, so must cast
+Object obj = animals.get(0); // Can only safely read as Object
+```
+
+### Summary:
+
+- **`? extends T`**:
+  - You can read elements as type `T` or its subclasses.
+  - You cannot add elements (except `null`) because you don't know the specific type at runtime.
+  - Example use case: You are working with a list of elements and want to ensure they are all `T` or a subclass of `T`, but you are only reading data.
+
+- **`? super T`**:
+  - You can add elements of type `T` or its subclasses.
+  - You can only read elements as type `Object`, as the actual type is not known.
+  - Example use case: You are modifying a list and want to ensure you can add `T` or a subclass, but you don't need to read from it.
+
+Understanding how to use `extends` and `super` effectively helps ensure flexibility while maintaining type safety in generic methods and classes.
 # Generic types and Inheritance
 
 ## Inheritance and Subtype relationships
@@ -108,6 +191,19 @@ class Dog extends Animal {
 
 ## Wildcard types
 ![image](https://github.com/user-attachments/assets/225c9edc-2042-4b4d-838b-3ff318f5b26a)
+
+## Use ? extends for Producers
+![image](https://github.com/user-attachments/assets/cdea1527-5ba3-4c3a-86b4-bbc8c9ed44f8)
+
+## Supertype Bounds
+![image](https://github.com/user-attachments/assets/37f9f214-dd47-41fd-b452-70a3e39f817f)
+
+## Complex Wildcards
+
+
+
+
+
 
 
 
