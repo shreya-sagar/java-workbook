@@ -100,6 +100,19 @@ class Dog extends Animal {
 ![image](https://github.com/user-attachments/assets/84c4b464-2407-4645-9c3a-d4fb4d42751f)
 ![image](https://github.com/user-attachments/assets/5bdd48cd-3a68-4f60-ae02-c66b04a50b97)
 
+# Generic types and Inheritance
+
+## Inheritance and Subtype relationships
+![image](https://github.com/user-attachments/assets/17a26e9b-9a6a-4261-a1eb-458b838e6e1d)
+![image](https://github.com/user-attachments/assets/b765b284-2d4a-4965-a2ce-08335acf3942)
+
+## Wildcard types
+![image](https://github.com/user-attachments/assets/225c9edc-2042-4b4d-838b-3ff318f5b26a)
+
+
+
+
+
 
 
 
