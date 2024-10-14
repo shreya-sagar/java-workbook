@@ -35,3 +35,22 @@ The `java` command with a single `.java` file won't handle compiling multiple fi
    ```
 
 * `System.out` is an object. It is an instance of a class called `PrintStream`. The `PrintStream` class has methods `println`, `print`, and so on. These methods are called _instance methods_ because they operate on objects, or instances, of the class.
+* You can have `JShell` fill in the type for you or import. Another useful feature of `JShell` is usage of TAB key for autocompletion. In the autocompletion list, methods that may require an argument are only followed by a left parenthesis, such as `nextDouble(`, but methods without arguments have both parentheses, such as `nextBoolean()`.
+![image](https://github.com/user-attachments/assets/6331287f-47ef-47e2-ac6d-7656f0fe7b00)
+By default, JShell imports the following packages:
+```java
+java.io
+java.math
+java.net
+java.nio.file
+java.util
+java.util.concurrent
+java.util.function
+java.util.prefs
+java.util.regex
+java.util.stream
+```
+To get help, type /help and Enter. To exit, type /exit and Enter, or simply Ctrl+D.
+
+* The signed integer types (`byte`, `short`, `int`, `long`) are for numbers without fractional parts. `Integer`, `Long`, `Short`, and `Byte` classes have `MIN_VALUE` and `MAX_VALUE` constants. 
+*      
