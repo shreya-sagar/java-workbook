@@ -34,4 +34,4 @@ The `java` command with a single `.java` file won't handle compiling multiple fi
    ./hello
    ```
 
-* 
+* `System.out` is an object. It is an instance of a class called `PrintStream`. The `PrintStream` class has methods `println`, `print`, and so on. These methods are called _instance methods_ because they operate on objects, or instances, of the class.
