@@ -1,3 +1,7 @@
+# Resources:
+- https://learning.oreilly.com/course/core-java-11/9780135160053/
+- https://horstmann.com/corejava/livelessons/lesson08/index.html#(1)
+
 # Type parameters
 - Before type parameters, Java used inheritance in ArrayList with add(Object o), get(Object o) but the problem was that 
 if in an arraylist of strings, file type was added, the add method would not complain because it could add any Object there. 
@@ -199,6 +203,18 @@ Understanding how to use `extends` and `super` effectively helps ensure flexibil
 ![image](https://github.com/user-attachments/assets/37f9f214-dd47-41fd-b452-70a3e39f817f)
 
 ## Complex Wildcards
+- LocalDate does not implement Comparable<LocalDate> because the bridge methods would clash
+![image](https://github.com/user-attachments/assets/e26d1824-9ca8-4ba3-80cc-4d8276e9d8d0)
+
+## Unbounded Wildcards
+![image](https://github.com/user-attachments/assets/97cd1b8e-04f3-4195-85d2-d6f3e14ca0ac)
+
+## Wildcard Capture
+![image](https://github.com/user-attachments/assets/901c23b2-7350-41ae-910b-b3835adf65ad)
+
+
+
+
 
 
 
