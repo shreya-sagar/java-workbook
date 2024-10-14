@@ -1,6 +1,9 @@
 # java-workbook
 Repository to practice Java
 
+# Resources 
+- https://learning.oreilly.com/course/core-java-11/9780135160053/
+
 # Key Points
 ## Fundamental Programming Structures
 
