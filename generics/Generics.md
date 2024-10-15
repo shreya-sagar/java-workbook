@@ -204,13 +204,71 @@ Understanding how to use `extends` and `super` effectively helps ensure flexibil
 
 ## Complex Wildcards
 - LocalDate does not implement Comparable<LocalDate> because the bridge methods would clash
-![image](https://github.com/user-attachments/assets/e26d1824-9ca8-4ba3-80cc-4d8276e9d8d0)
+- Generic Comparable interface:
+```java
+public interface Comparable<T>
+{
+   public int compareTo(T other);
+}
+```
+Let's use it in min:
+```java
+public static <T extends Comparable<T>> T min(T[] a)
+```
+- Works fine with `String` which implements the `Comparable<String>` interface.
+- But it doesn't work with a `LocalDate` array!
+  - `LocalDate` implements `ChronoLocalDate`
+  - `ChronoLocalDate` extends `Comparable<ChronoLocalDate>`
+  - `LocalDate` does not implement `Comparable<LocalDate>`
+- Remedy:
+```java
+public static <T extends Comparable<? super T>> T min(T[] a) . . .
+```
 
 ## Unbounded Wildcards
-![image](https://github.com/user-attachments/assets/97cd1b8e-04f3-4195-85d2-d6f3e14ca0ac)
+Can you do anything with the Pair<?> type?
+```java
+? getFirst()
+void setFirst(?)
+```
+Here is an example:
+```java
+public static boolean hasNulls(Pair<?> p)
+{
+   return p.getFirst() == null || p.getSecond() == null;
+}
+```
+Could have used a generic method:
+```java
+public static <T> boolean hasNulls(Pair<T> p)
+```
+But the wildcard looks nicer.
 
 ## Wildcard Capture
-![image](https://github.com/user-attachments/assets/901c23b2-7350-41ae-910b-b3835adf65ad)
+Write a method that swaps the elements of a pair:
+```java
+public static void swap(Pair<?> p)
+```
+The obvious approach doesn't work:
+```java
+? t = p.getFirst(); // Error
+p.setFirst(p.getSecond());
+p.setSecond(t);
+```
+Define helper method:
+```java
+public static <T> void swapHelper(Pair<T> p)
+{
+   T t = p.getFirst();
+   p.setFirst(p.getSecond());
+   p.setSecond(t);
+}
+```
+Call helper method:
+```java
+public static void swap(Pair<?> p) { swapHelper(p); }
+```
+We don't know what ? is, but it is a definite type that can be “captured” in the call `<definite type>swapHelper`.
 
 
 
