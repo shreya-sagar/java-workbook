@@ -203,7 +203,7 @@ Understanding how to use `extends` and `super` effectively helps ensure flexibil
 ![image](https://github.com/user-attachments/assets/37f9f214-dd47-41fd-b452-70a3e39f817f)
 
 ## Complex Wildcards
-- Generic Comparable interface:
+- Generic `Comparable` interface:
 ```java
 public interface Comparable<T>
 {
