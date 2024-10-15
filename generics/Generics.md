@@ -203,7 +203,6 @@ Understanding how to use `extends` and `super` effectively helps ensure flexibil
 ![image](https://github.com/user-attachments/assets/37f9f214-dd47-41fd-b452-70a3e39f817f)
 
 ## Complex Wildcards
-- LocalDate does not implement Comparable<LocalDate> because the bridge methods would clash
 - Generic Comparable interface:
 ```java
 public interface Comparable<T>
@@ -219,7 +218,7 @@ public static <T extends Comparable<T>> T min(T[] a)
 - But it doesn't work with a `LocalDate` array!
   - `LocalDate` implements `ChronoLocalDate`
   - `ChronoLocalDate` extends `Comparable<ChronoLocalDate>`
-  - `LocalDate` does not implement `Comparable<LocalDate>`
+  - `LocalDate` does not implement `Comparable<LocalDate>` because the bridge methods would clash
 - Remedy:
 ```java
 public static <T extends Comparable<? super T>> T min(T[] a) . . .
