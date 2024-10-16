@@ -2,7 +2,6 @@ package com.dev;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.function.IntFunction;
 
 public class GenericsApplication {
@@ -50,7 +49,4 @@ public class GenericsApplication {
         stringPair.setSecond("value");
         System.out.println(stringPair.equals("value"));
     }
-}
-
-class PairException<T> {
 }

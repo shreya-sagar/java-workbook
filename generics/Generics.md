@@ -272,34 +272,42 @@ We don't know what ? is, but it is a definite type that can be “captured” in
 # Reflection and generic types
 
 ## The Generic `Class` Class
-- Class is a generic type.
-- String.class is an instance of Class<String>.
-- Class<T> has some methods with type parameters:
+- `Class` is a generic type.
+- `String.class` is an instance of `Class<String>`.
+- `Class<T>` has some methods with type parameters:
+```
 T newInstance()
 T cast(Object obj)
 T[] getEnumConstants()
 Class<? super T> getSuperclass()
 Constructor<T> getConstructor(Class<?>... parameterTypes)
 Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes)
-Can be useful for type matching:
+```
+- Can be useful for type matching:
+```
 public static <T> Pair<T> makePair(Class<T> cl) throws . . .
 {
    return new Pair<>(cl.newInstance(), cl.newInstance());
 }
+```
 Called like this:
+```java
 Pair<String> p = Pair.makePair(String.class);
+```
 
 ## Generic Type Information in the Virtual Machine
 - Erased types have some faint memory of their origin.
-- Raw Pair knows it came from generic Pair<T> class.
+- Raw Pair knows it came from generic `Pair<T>` class.
 Consider this method:
+```java
 public static <T extends Comparable<? super T>> T min(T[] a)
-- The Method object of its erasure knows:
-  - The generic method has a type parameter called T
+```
+- The `Method` object of its erasure knows:
+  - The generic method has a type parameter called `T`
   - The type parameter has a subtype bound that is itself a generic type.
   - The bounding type has a wildcard parameter.
   - The wildcard parameter has a supertype bound.
-- The java.lang.reflect.Type interface has subinterfaces to analyze generic types at runtime.
+- The `java.lang.reflect.Type` interface has subinterfaces to analyze generic types at runtime.
 ![image](https://github.com/user-attachments/assets/0f78bc10-0f87-40c3-8697-c2b42e924b22)
 
 

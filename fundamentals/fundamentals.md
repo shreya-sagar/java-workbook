@@ -53,4 +53,13 @@ java.util.stream
 To get help, type /help and Enter. To exit, type /exit and Enter, or simply Ctrl+D.
 
 * The signed integer types (`byte`, `short`, `int`, `long`) are for numbers without fractional parts. `Integer`, `Long`, `Short`, and `Byte` classes have `MIN_VALUE` and `MAX_VALUE` constants. 
-*      
+* You write `long` integer literals with a suffix `L` (for example, `4000000000L`). 
+* Hexadecimal literals have a prefix `0x` (for example, `0xCAFEBABE`). 
+* Binary values have a prefix `0b`. For example, `0b1001` is 9. 
+* **CAUTION** : Octal numbers have a prefix 0. For example, 011 is 9. This can be confusing, so it seems best to stay away from octal literals and leading zeroes.
+* **NOTE** : If you work with `integer` values that can never be negative and you really need an additional bit, you can, with some care, interpret `signed` integer values as `unsigned`. 
+For example, a `byte` value b represents the range from –128 to 127. If you want a range from 0 to 255, you can still store it in a byte. 
+Due to the nature of binary arithmetic, addition, subtraction, and multiplication will all work, provided they don’t overflow. 
+For other operations, call `Byte.toUnsignedInt(b)` to get an `int` value between 0 and 255, then process the `integer` value, and cast the result back to `byte`. 
+The `Integer` and `Long` classes have methods for unsigned division and remainder.
+* 
