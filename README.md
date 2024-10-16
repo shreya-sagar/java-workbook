@@ -3,6 +3,7 @@ Repository to practice Java
 
 # Resources 
 - Core Java 11 Fundamentals, Second Edition : https://learning.oreilly.com/course/core-java-11/9780135160053/
+- Core Java 11 Fundamentals, Second Edition PPT & Code : https://horstmann.com/corejava/livelessons/#(1)
 - Core Java for the Impatient, 3rd Edition : https://learning.oreilly.com/library/view/core-java-for/9780138051846/
 
 # Key Points
