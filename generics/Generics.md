@@ -145,7 +145,7 @@ public static void addIntegers(List<? super Integer> list) {
 
 ### Key Difference: `extends` vs `super`
 
-- **`extends`**: Use this when you want to **read** data from a structure but you’re not going to add any new data (except `null`). It makes sense when you're looking to get more specific subtypes of a type.
+- **`extends`**: Use this when you want to **read** data from a structure, but you’re not going to add any new data (except `null`). It makes sense when you're looking to get more specific subtypes of a type.
 - **`super`**: Use this when you want to **write** data into a structure. This is useful when you’re inserting items, ensuring that the structure can hold the type or any of its supertypes.
 
 ### Practical Example with Both `extends` and `super`:
@@ -307,7 +307,7 @@ public static <T extends Comparable<? super T>> T min(T[] a)
   - The type parameter has a subtype bound that is itself a generic type.
   - The bounding type has a wildcard parameter.
   - The wildcard parameter has a supertype bound.
-- The `java.lang.reflect.Type` interface has subinterfaces to analyze generic types at runtime.
+- The `java.lang.reflect.Type` interface has sub-interfaces to analyze generic types at runtime.
 ![image](https://github.com/user-attachments/assets/0f78bc10-0f87-40c3-8697-c2b42e924b22)
 
 
